@@ -9,4 +9,10 @@ public class UserController {
 	public String hello() {
 		return "Hello Ciao";
 	}
+
+	@GetMapping("/home")
+	public String home(){
+		return "shopper/index";
+	}
+
 }
