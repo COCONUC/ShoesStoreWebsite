@@ -18,7 +18,7 @@ public class Brand {
 	private int id;
 	private String brand_name;
 	private boolean status;
-	@OneToMany(mappedBy = "brand", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "brand", fetch = FetchType.EAGER)
 	private List<Product> productList;
 	
 	//con thieu constructor tong cho productlist

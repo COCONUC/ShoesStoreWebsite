@@ -1,30 +1,13 @@
-package com.shoestore.entity;
+package com.shoestore.dto;
 
 import java.sql.Blob;
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+public class ProductDto {
 
-@Entity
-@Table(name = "product")
-public class Product {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	@Column(name = "brand_id")
 	private int brand_id;
-	@ManyToOne
-	@JoinColumn(name = "brand_id", insertable = false, updatable = false)
-	private Brand brand;
-
+	private String brand_name;
 	private String product_name;
 	private String version;
 	private double price;
@@ -33,17 +16,16 @@ public class Product {
 	private Blob image_link;
 	private boolean status;
 
-	// con thieu field cua brand dung de map chua co constructor tong va da co
-	// getter setter
-	public Product() {
+	public ProductDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(int id, int brand_id, String product_name, String version, double price, Date create_at,
-			Date update_at, Blob image_link, boolean status) {
+	public ProductDto(int id, int brand_id, String brand_name, String product_name, String version, double price,
+			Date create_at, Date update_at, Blob image_link, boolean status) {
 		super();
 		this.id = id;
 		this.brand_id = brand_id;
+		this.brand_name = brand_name;
 		this.product_name = product_name;
 		this.version = version;
 		this.price = price;
@@ -67,6 +49,14 @@ public class Product {
 
 	public void setBrand_id(int brand_id) {
 		this.brand_id = brand_id;
+	}
+
+	public String getBrand_name() {
+		return brand_name;
+	}
+
+	public void setBrand_name(String brand_name) {
+		this.brand_name = brand_name;
 	}
 
 	public String getProduct_name() {
@@ -123,14 +113,6 @@ public class Product {
 
 	public void setStatus(boolean status) {
 		this.status = status;
-	}
-
-	public Brand getBrand() {
-		return brand;
-	}
-
-	public void setBrand(Brand brand) {
-		this.brand = brand;
 	}
 
 }
