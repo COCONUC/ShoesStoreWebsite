@@ -89,4 +89,30 @@ public class AdminController {
 		return dto;
 	}
 
+    @GetMapping("/amdin-login")
+    public String adminLogin(){
+        return "admin/login";
+    }
+
+	@GetMapping("/amdin-dashboard")
+    public String adminDashboard(){
+        return "admin/dashboard";
+    }
+    
+	@GetMapping("/amdin-products")
+    public String adminProducts(){
+        return "admin/products";
+    }
+    
+
+	@GetMapping("/amdin-orders")
+    public String adminOrders(){
+        return "admin/orders";
+    }
+
+	@GetMapping("/amdin-order-detail")
+    public String adminOrdersDetails(){
+        return "admin/order-detail";
+    }
+
 }
